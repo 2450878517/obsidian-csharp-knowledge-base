@@ -1,0 +1,14 @@
+# Obsidian 个人配置（编辑器设置，无需公开）
+.obsidian/
+
+# Claudian 插件会话数据（隐私）
+.claudian/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 临时文件
+*.tmp
+~$*
