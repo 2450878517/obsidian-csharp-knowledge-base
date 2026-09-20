@@ -14,7 +14,7 @@ tags:
 
 ```dataview
 LIST
-FROM ""
+FROM "0_Inbox" OR "1_Areas" OR "2_Projects" OR "3_Resources"
 WHERE date(file.cday) = date("{{date:YYYY-MM-DD}}")
   AND !contains(tags, "daily")
 SORT file.name ASC
@@ -24,7 +24,7 @@ SORT file.name ASC
 
 ```dataview
 LIST
-FROM ""
+FROM "0_Inbox" OR "1_Areas" OR "2_Projects" OR "3_Resources"
 WHERE date(file.mtime) = date("{{date:YYYY-MM-DD}}")
   AND date(file.cday) != date("{{date:YYYY-MM-DD}}")
   AND !contains(tags, "daily")
@@ -36,5 +36,3 @@ SORT file.mtime DESC
 - [ ] 
 
 ## 随手记
-
-```

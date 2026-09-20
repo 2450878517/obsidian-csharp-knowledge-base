@@ -46,8 +46,9 @@ source: ""
 TABLE WITHOUT ID
   file.link AS "反向关联",
   status AS "状态"
-FROM "1_Areas"
-WHERE contains(related, this.file.name)
+FROM "0_Inbox" OR "1_Areas" OR "2_Projects" OR "3_Resources"
+WHERE (contains(default(related, []), this.file.name) OR contains(default(related, []), this.file.link))
+  AND file.path != this.file.path
 SORT file.name ASC
 ```
 
@@ -55,8 +56,8 @@ SORT file.name ASC
 TABLE WITHOUT ID
   file.link AS "同标签笔记",
   area AS "领域"
-FROM "1_Areas"
-WHERE contains(file.tags, this.file.tags[0])
-  AND file.name != this.file.name
+FROM "0_Inbox" OR "1_Areas" OR "2_Projects" OR "3_Resources"
+WHERE length(this.file.tags) > 0 AND contains(file.tags, this.file.tags[0])
+  AND file.path != this.file.path
 LIMIT 8
 ```

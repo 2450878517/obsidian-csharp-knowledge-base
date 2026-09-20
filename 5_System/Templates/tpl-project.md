@@ -6,6 +6,9 @@ tags:
 status: active
 deadline: ""
 area: ""
+related: []
+related: []
+related: []
 ---
 
 # 🚀 {{title}}
@@ -24,8 +27,8 @@ area: ""
 
 ```dataview
 LIST
-FROM "2_Projects/{{title}}"
-WHERE !contains(tags, "project")
+FROM "0_Inbox" OR "1_Areas" OR "2_Projects" OR "3_Resources"
+WHERE file.path != this.file.path AND (contains(default(related, []), this.file.link) OR contains(default(related, []), this.file.name) OR contains(this.file.outlinks, file.link))
 SORT file.name ASC
 ```
 
