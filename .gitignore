@@ -12,3 +12,7 @@ desktop.ini
 # 临时文件
 *.tmp
 ~$*
+
+# Python 缓存
+__pycache__/
+*.pyc
